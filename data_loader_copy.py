@@ -4,7 +4,7 @@ import numpy as np
 
 path_prefix = '../datasets/'
 
-def load_data(dataset='u', train_ratio=0.9):
+def load_data(dataset='ratings', train_ratio=0.9):
     fname = path_prefix+dataset+'.dat'
     max_uid = 0
     max_vid = 0
@@ -19,7 +19,7 @@ def load_data(dataset='u', train_ratio=0.9):
     with open(fname,encoding = "ISO-8859-1") as f:
         for line in f:
             #user,item,rating,m = line.split()
-            tks = line.strip().split()#把数据变成一个list
+            tks = line.strip().split('::')#把数据变成一个list
             #tks = m
             if first_line_flag:
                 max_uid = int(tks[0])
